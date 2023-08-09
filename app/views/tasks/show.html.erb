@@ -1,0 +1,21 @@
+<div class="card rounded-5">
+  <div class="border rounded-bottom rounded-5" style="background: #FFCCFF">
+    <h1><%= @task.title %> </h1>
+  </div>
+  <div class="p-4">
+    <p><%= @task.details %></p>
+    <% if @task.completed %>
+      <span>This task is completed</span>
+      <i class="fa-solid fa-square-check"></i>
+    <% else %>
+      <span>This task is not completed yet</span>
+      <i class='fa-regular fa-square'></i>
+    <% end %>
+
+    <div class="mt-3 d-flex justify-content-center gap-2">
+    <%= link_to "⬅️Back to list", tasks_path , class: 'btn btn-light'  %>
+    <%= link_to "✏️ Edit", edit_task_path(@task), class: 'btn btn-light' %>
+    <%= link_to '🗑️ Delete', task_path(@task), class: 'btn btn-light', data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }  %>
+    </div>
+  </div>
+</div>

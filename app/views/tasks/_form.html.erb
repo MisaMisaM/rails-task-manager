@@ -1,0 +1,13 @@
+
+<% @task.errors.full_messages.each do |msg| %>
+  <p class='text-danger'><%= msg %></p>
+<% end %>
+
+<%= form_with model: @task do |f| %>
+  <!-- <input type="text" name="name"> -->
+  <%= f.label :title %>
+  <%= f.text_field :title, class: 'form-control' %>
+  <%= f.label :details %>
+  <%= f.text_area :details, class: 'form-control' %>
+  <%= f.submit class: 'btn btn-primary mt-2' %>
+<% end %>
